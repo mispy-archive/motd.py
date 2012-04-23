@@ -123,7 +123,7 @@ def sysinfo():
         'total': int(raw_swap[1])
     }
 
-    swap['ratio'] = float(swap['used'])/swap['total']
+    swap['ratio'] = 0.0 if swap['total'] == 0 else float(swap['used'])/swap['total']
 
     process_count = int(sh("ps aux|wc -l"))-1
 
